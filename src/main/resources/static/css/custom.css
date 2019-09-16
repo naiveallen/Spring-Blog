@@ -1,0 +1,53 @@
+.custom-padding-mini {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+
+.custom-padding-small {
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+
+.custom-padding {
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+
+.custom-padding-big {
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+
+.custom-padding-large {
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+
+.custom-padding-huge {
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+
+.custom-padding-max {
+    padding-top: 5em !important;
+    padding-bottom: 5em !important;
+}
+
+
+/*  text  */
+
+.custom-text-thin {
+    font-weight: 300 !important
+}
+
+.custom-text-space {
+    letter-spacing: 1px !important
+}
+
+.custom-text-lined {
+    line-height: 1.8
+}
+
+.custom-opacity-mini {
+    opacity: 0.8 !important;
+}
