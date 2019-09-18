@@ -11,7 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Long Id;
+    private Long id;
 
     private String nickname;
 
@@ -38,11 +38,11 @@ public class User {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getNickname() {
@@ -120,7 +120,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", nickname='" + nickname + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

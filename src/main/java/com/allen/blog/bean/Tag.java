@@ -10,7 +10,7 @@ public class Tag {
 
     @Id
     @GeneratedValue
-    private Long Id;
+    private Long id;
 
     public String getName() {
         return name;
@@ -37,18 +37,18 @@ public class Tag {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
 
     @Override
     public String toString() {
         return "Tag{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }

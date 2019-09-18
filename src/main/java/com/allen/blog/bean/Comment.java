@@ -12,7 +12,7 @@ public class Comment {
 
     @Id
     @GeneratedValue
-    private Long Id;
+    private Long id;
 
     private String nickname;
 
@@ -38,11 +38,11 @@ public class Comment {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getNickname() {
@@ -112,7 +112,7 @@ public class Comment {
     @Override
     public String toString() {
         return "Comment{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", nickname='" + nickname + '\'' +
                 ", email='" + email + '\'' +
                 ", content='" + content + '\'' +
