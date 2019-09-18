@@ -12,7 +12,7 @@ public class Type {
     @GeneratedValue
     private Long id;
 
-    private String type;
+    private String name;
 
     @OneToMany(mappedBy = "type")
     private List<Blog> blogs = new ArrayList<>();
@@ -28,12 +28,12 @@ public class Type {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Blog> getBlogs() {
@@ -48,7 +48,7 @@ public class Type {
     public String toString() {
         return "Type{" +
                 "id=" + id +
-                ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

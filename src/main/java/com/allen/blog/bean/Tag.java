@@ -12,7 +12,15 @@ public class Tag {
     @GeneratedValue
     private Long Id;
 
-    private String tag;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
 
     @ManyToMany(mappedBy = "tags")
     private List<Blog> blogs = new ArrayList<>();
@@ -36,19 +44,12 @@ public class Tag {
         Id = id;
     }
 
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
 
     @Override
     public String toString() {
         return "Tag{" +
                 "Id=" + Id +
-                ", tag='" + tag + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
