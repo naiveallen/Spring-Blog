@@ -59,6 +59,10 @@ public class BlogService {
         return blogRepository.findAll(pageable);
     }
 
+    public Page<Blog> listBlog(String query, Pageable pageable) {
+        return blogRepository.findByQuery(query, pageable);
+    }
+
     public List<Blog> listRecommendBlog(Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC, "updateTime");
         Pageable pageable = new PageRequest(0, size, sort);
