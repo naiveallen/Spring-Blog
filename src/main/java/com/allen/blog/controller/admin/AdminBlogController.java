@@ -33,7 +33,7 @@ public class AdminBlogController {
     private TagService tagService;
 
     @GetMapping("/blogs")
-    public String blogs(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String blogs(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Blog blog, Model model) {
         model.addAttribute("page", blogService.listBlog(pageable,blog));
         model.addAttribute("types", typeService.listType());
@@ -42,7 +42,7 @@ public class AdminBlogController {
 
     // TODO: type暂时取不到值
     @PostMapping("/blogs/search")
-    public String search(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String search(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Blog blog, Model model) {
         model.addAttribute("page", blogService.listBlog(pageable,blog));
         return "admin/blogs :: blogList";
