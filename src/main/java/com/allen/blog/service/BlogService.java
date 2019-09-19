@@ -4,6 +4,7 @@ import com.allen.blog.bean.Blog;
 import com.allen.blog.bean.Type;
 import com.allen.blog.dao.BlogRepository;
 import com.allen.blog.exception.NotFoundException;
+import com.allen.blog.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -54,13 +55,9 @@ public class BlogService {
 
     @Transactional
     public Blog saveBlog(Blog blog) {
-        if (blog.getId() == null) {
-            blog.setCreateTime(new Date());
-            blog.setUpdateTime(new Date());
-            blog.setViews(0);
-        } else {
-            blog.setUpdateTime(new Date());
-        }
+        blog.setCreateTime(new Date());
+        blog.setUpdateTime(new Date());
+        blog.setViews(0);
         return blogRepository.save(blog);
     }
 
@@ -70,7 +67,8 @@ public class BlogService {
         if (b == null) {
             throw new NotFoundException("This blog is not exit.");
         }
-        BeanUtils.copyProperties(blog, b);
+        BeanUtils.copyProperties(blog, b, MyBeanUtils.getNullPropertyNames(blog));
+        b.setUpdateTime(new Date());
         return blogRepository.save(b);
     }
 
