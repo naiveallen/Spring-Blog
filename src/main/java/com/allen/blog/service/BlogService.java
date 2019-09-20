@@ -4,6 +4,7 @@ import com.allen.blog.bean.Blog;
 import com.allen.blog.bean.Type;
 import com.allen.blog.dao.BlogRepository;
 import com.allen.blog.exception.NotFoundException;
+import com.allen.blog.util.MarkdownUtils;
 import com.allen.blog.util.MyBeanUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,21 @@ public class BlogService {
     @Transactional
     public Blog getBlog(Long id) {
         return blogRepository.getOne(id);
+    }
+
+    @Transactional
+    public Blog getAndConvert(Long id) {
+        Blog blog = blogRepository.getOne(id);
+        if (blog == null) {
+            throw new NotFoundException("该博客不存在");
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog,b);
+        String content = b.getContent();
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+
+//        blogRepository.updateViews(id);
+        return b;
     }
 
     @Transactional
