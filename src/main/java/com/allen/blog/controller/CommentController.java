@@ -41,7 +41,7 @@ public class CommentController {
         User user = (User) session.getAttribute("user");
         if (user != null) {
             comment.setAvatar(user.getAvatar());
-//            comment.setAdminComment(true);
+            comment.setAdminComment(true);
         } else {
             comment.setAvatar(avatar);
         }
